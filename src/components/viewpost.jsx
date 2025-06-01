@@ -35,7 +35,7 @@ const ViewPost = ({ open, handleClose, post, isLiked, onLikeToggle }) => {
       aria-labelledby="view-post-modal"
       aria-describedby="view-post-description"
     >
-      <Box sx={style}>
+      <Box sx={style} className="overflow-hidden">
         <Box
           sx={{
             position: "absolute",
@@ -61,7 +61,7 @@ const ViewPost = ({ open, handleClose, post, isLiked, onLikeToggle }) => {
           {/* Image Section */}
           <Box
             sx={{
-              flex: "1 1 60%",
+              flex: "1 1 50%",
               bgcolor: "grey.900",
               display: "flex",
               alignItems: "center",
@@ -74,8 +74,15 @@ const ViewPost = ({ open, handleClose, post, isLiked, onLikeToggle }) => {
               alt={post.name}
               sx={{
                 width: "100%",
-                height: "100%",
                 objectFit: "contain",
+                "&:hover": {
+                  cursor: "pointer",
+                  transform: "translateY(-3px)",
+                  overflow: "hidden",
+                  filter: "grayscale(100%)",
+                  objectFit: "cover",
+                  transition: "transform 0.9s ease-in-out",
+                },
               }}
             />
           </Box>
@@ -84,6 +91,7 @@ const ViewPost = ({ open, handleClose, post, isLiked, onLikeToggle }) => {
           <Box
             sx={{
               flex: "1 1 40%",
+              //   zIndex: 2,
               p: 3,
               display: "flex",
               flexDirection: "column",
