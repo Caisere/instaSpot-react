@@ -1,11 +1,9 @@
-
+import React from "react";
 import PostDetails from "./postdetails";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const CardGrid = ({posts, setPosts}) => {
-
-
+const CardGrid = ({ posts, setPosts }) => {
   if (posts.length === 0) {
     return (
       <Box
@@ -24,8 +22,8 @@ const CardGrid = ({posts, setPosts}) => {
   }
 
   return (
-    <main className="container mx-auto px-4 my-10">
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <main className="container p-4 my-10 flex flex-col items-center justify-center">
+      <ul className="grid grid-cols-1 gap-6 place-items-center h-full sm:grid-cols-2 sm lg:grid-cols-3">
         {posts.map((post) => (
           <PostDetails
             key={post.image}

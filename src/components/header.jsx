@@ -1,11 +1,44 @@
-import React from 'react'
+import React from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
-const header = () => {
-    return (
-        <header className="w-full h-16 bg-white flex items-center justify-center">
-            <img src="/Logo.svg" alt="logo" className="w-10 h-10" />
-        </header>
-    )
-}
+const Header = () => {
+  return (
+    <Box
+      component="header"
+      sx={{
+        width: "100%",
+        height: 64,
+        bgcolor: "background.paper",
+        borderBottom: 1,
+        borderColor: "divider",
+        position: "sticky",
+        top: 0,
+        zIndex: 1100,
+      }}
+    >
+      <Container
+        maxWidth="xl"
+        sx={{
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          component="img"
+          src="/Logo.svg"
+          alt="logo"
+          sx={{
+            width: 40,
+            height: 40,
+            objectFit: "contain",
+          }}
+        />
+      </Container>
+    </Box>
+  );
+};
 
-export default header
+export default Header;
