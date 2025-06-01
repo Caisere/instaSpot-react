@@ -30,15 +30,16 @@ const PostDetails = ({ post, onDelete }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          transition: "transform 0.2s",
+          transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
           "&:hover": {
             transform: "translateY(-4px)",
+            boxShadow: (theme) => theme.shadows[4],
           },
         }}
       >
         <CardMedia
           component="img"
-          height="200"
+          height="240"
           image={imageError ? "/placeholder-image.png" : post.image}
           alt={post.name}
           onError={handleImageError}
@@ -52,13 +53,19 @@ const PostDetails = ({ post, onDelete }) => {
             },
           }}
         />
-        <CardContent sx={{ flexGrow: 1 }}>
+        <CardContent
+          sx={{
+            flexGrow: 1,
+            p: 2,
+            "&:last-child": { pb: 2 },
+          }}
+        >
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-start",
-              mb: 1,
+              gap: 1,
             }}
           >
             <Typography
@@ -67,17 +74,19 @@ const PostDetails = ({ post, onDelete }) => {
               sx={{
                 fontSize: "1.1rem",
                 fontWeight: 500,
-                lineHeight: 1.2,
-                mb: 1,
+                lineHeight: 1.3,
+                flex: 1,
+                mt: 0.5,
               }}
             >
               {post.text}
             </Typography>
-            <Box>
+            <Box sx={{ display: "flex", gap: 0.5 }}>
               <IconButton
                 onClick={handleLikeToggle}
                 color={isLiked ? "error" : "default"}
                 size="small"
+                sx={{ p: 1 }}
               >
                 {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
               </IconButton>
@@ -85,6 +94,7 @@ const PostDetails = ({ post, onDelete }) => {
                 onClick={() => onDelete(post.image)}
                 color="default"
                 size="small"
+                sx={{ p: 1 }}
               >
                 <DeleteIcon />
               </IconButton>

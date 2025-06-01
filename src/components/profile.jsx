@@ -37,7 +37,7 @@ const Profile = ({ posts, setPosts }) => {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center md:flex-row lg:flex-row gap-6 my-10 p-16">
+      <section className="flex flex-col items-center justify-center pb-6 gap-6 sm:flex-row md:flex-row md:items-start md:justify-between md:max-w-[100%] md:gap-0 lg:flex-row lg:p-11 ">
         <div className="flex justify-center items-center">
           <img
             className="w-[full] h-full object-cover md:w-[80%] lg:w-[80%]"
@@ -45,14 +45,14 @@ const Profile = ({ posts, setPosts }) => {
             alt="profile"
           />
         </div>
-        <div className="w-[80%] text-center md:text-left lg:text-left md:w-full lg:w-full gap-2 flex flex-col justify-center items-center md:flex-1 lg:flex-1">
-          <h1 className="text-4xl text-center font-bold max-w-[100%] max-w-md:max-w-[80%] max-w-lg:max-w-[80%] md:text-left lg:text-left">
+        <div className="w-[80%] text-center gap-2 flex flex-col justify-center items-center sm:items-start sm:justify-start sm:text-left md:text-left md:max-w-[100%] md:flex-1 md:justify-start md:items-start lg:text-left lg:w-full lg:flex-1">
+          <h1 className="text-4xl text-center font-bold max-w-[100%] sm:text-left md:max-w-[100%] md:text-3xl  md:text-left lg:max-w-[65%] lg:text-[40px] lg:text-left">
             {profileName}
           </h1>
-          <p className="text-gray-500 text-lg max-w-[100%] max-w-md:max-w-[80%] max-w-lg:max-w-[100%] md:text-left lg:text-left">
+          <p className="text-gray-500 text-lg max-w-[100%]  md:max-w-[80%] md:text-sm md:text-left lg:text-left lg:max-w-[55%] lg:text-xl">
             {profileBio}
           </p>
-          <div className="flex flex-col md:flex-row lg:flex-row gap-4 w-full justify-center md:justify-between lg:justify-between">
+          <div className="flex flex-col gap-4 w-full justify-center sm:w-[100%] sm:flex-row sm:justify-between sm:items-start md:flex-row md:justify-between lg:flex-row lg:justify-between">
             <Button
               variant="contained"
               color="primary"
