@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./theme";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import defaultPosts from "./cardjson/card.json";
 
 //components
@@ -13,8 +13,35 @@ import Profile from "./components/profile";
 import CardGrid from "./components/card";
 import Footer from "./components/footer";
 
+const loadInitialPosts = () => {
+  try {
+    const savedPosts = localStorage.getItem("instaspots_posts");
+    return savedPosts ? JSON.parse(savedPosts) : defaultPosts;
+  } catch (error) {
+    console.error("Error loading posts from localStorage:", error);
+    return defaultPosts;
+  }
+};
+
+const savePostsToStorage = (posts) => {
+  try {
+    localStorage.setItem("instaspots_posts", JSON.stringify(posts));
+  } catch (error) {
+    console.error("Error saving posts to localStorage:", error);
+  }
+};
+
 function App() {
-  const [posts, setPosts] = useState(defaultPosts);
+  const [posts, setPosts] = useState(loadInitialPosts());
+
+  // Save posts to localStorage whenever they change
+  useEffect(() => {
+    savePostsToStorage(posts);
+  }, [posts]);
+
+  const handleUpdatePosts = (newPosts) => {
+    setPosts(newPosts);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -39,8 +66,8 @@ function App() {
             gap: { xs: 3, sm: 4, md: 6 },
           }}
         >
-          <Profile posts={posts} setPosts={setPosts} />
-          <CardGrid posts={posts} setPosts={setPosts} />
+          <Profile posts={posts} setPosts={handleUpdatePosts} />
+          <CardGrid posts={posts} setPosts={handleUpdatePosts} />
         </Container>
         <Footer />
       </Box>

@@ -21,16 +21,18 @@ const CardGrid = ({ posts, setPosts }) => {
     );
   }
 
+  const handleDeletePost = (postId) => {
+    setPosts(posts.filter((p) => (p.id || p.image) !== postId));
+  };
+
   return (
     <main className="container p-4 my-10 flex flex-col items-center justify-center">
       <ul className="grid grid-cols-1 gap-6 place-items-center h-full sm:grid-cols-2 sm lg:grid-cols-3">
         {posts.map((post) => (
           <PostDetails
-            key={post.image}
+            key={post.id || post.image}
             post={post}
-            onDelete={(postId) => {
-              setPosts(posts.filter((p) => p.image !== postId));
-            }}
+            onDelete={handleDeletePost}
           />
         ))}
       </ul>

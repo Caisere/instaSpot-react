@@ -25,9 +25,10 @@ const NewPost = ({ open, handleClose, posts, setPosts }) => {
 
   const handleSubmit = () => {
     if (postImage && caption) {
-      // Create a new post object
+      // Create a new post object with unique ID
       const newPost = {
-        image: imagePreview, // Using the preview URL for now
+        id: Date.now().toString(),
+        image: imagePreview,
         text: caption,
         name: `image of ${caption}`,
       };
@@ -43,6 +44,14 @@ const NewPost = ({ open, handleClose, posts, setPosts }) => {
       // Close modal
       handleClose();
     }
+  };
+
+  const handleCancel = () => {
+    // Reset form on cancel
+    setPostImage(null);
+    setImagePreview(null);
+    setCaption("");
+    handleClose();
   };
 
   const style = {
@@ -137,16 +146,7 @@ const NewPost = ({ open, handleClose, posts, setPosts }) => {
           />
 
           <Box sx={{ display: "flex", gap: 2, justifyContent: "flex-end" }}>
-            <Button
-              variant="outlined"
-              onClick={() => {
-                // Reset form on cancel
-                setPostImage(null);
-                setImagePreview(null);
-                setCaption("");
-                handleClose();
-              }}
-            >
+            <Button variant="outlined" onClick={handleCancel}>
               Cancel
             </Button>
             <Button

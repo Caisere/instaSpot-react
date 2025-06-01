@@ -23,6 +23,10 @@ const PostDetails = ({ post, onDelete }) => {
     setIsLiked(!isLiked);
   };
 
+  const handleDelete = () => {
+    onDelete(post.id || post.image); // Fallback to image if id not present
+  };
+
   return (
     <>
       <Card
@@ -91,7 +95,7 @@ const PostDetails = ({ post, onDelete }) => {
                 {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
               </IconButton>
               <IconButton
-                onClick={() => onDelete(post.image)}
+                onClick={handleDelete}
                 color="default"
                 size="small"
                 sx={{ p: 1 }}
