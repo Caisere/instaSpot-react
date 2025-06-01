@@ -37,10 +37,10 @@ const Profile = ({ posts, setPosts }) => {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center pb-6 gap-6 sm:flex-row md:flex-row md:items-start md:justify-between md:max-w-[100%] md:gap-0 lg:flex-row lg:p-11 ">
+      <section className="flex flex-col items-center justify-center pb-6 gap-6 sm:flex-row md:flex-row md:items-start md:justify-between md:max-w-[100%] md:gap-6 lg:flex-row lg:p-11 ">
         <div className="flex justify-center items-center">
           <img
-            className="w-[full] h-full object-cover md:w-[80%] lg:w-[80%]"
+            className="w-[200px] h-[200px] object-cover rounded-full border-1 hover:cursor-pointer hover:scale-105 transition-all duration-300 sm:w-[200px] sm:h-[200px] sm:object-cover sm:rounded-full sm:flex sm:justify-center sm:items-center md:w-[210px] md:h-[210px] md:rounded-full md:flex md:justify-center md:items-center lg:w-[220px] lg:h-[220px] lg:rounded-full lg:flex lg:justify-center lg:items-center"
             src={profileImage}
             alt="profile"
           />
