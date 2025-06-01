@@ -1,0 +1,32 @@
+[
+  {
+    "image": "snowbuilding.png",
+    "text": "Val Thorens",
+    "name": "image of a Val Thorens"
+  },
+  {
+    "image": "restaurant.png",
+    "text": "Restaurant terrace",
+    "name": "image of a Restaurant"
+  },
+  {
+    "image": "cafe.png",
+    "text": "An outdoor cafe",
+    "name": "love icon"
+  },
+  {
+    "image": "bridge.png",
+    "text": "A very long bridge, over the forest...",
+    "name": "image of a bridge"
+  },
+  {
+    "image": "tunnel.png",
+    "text": "Tunnel with morning light",
+    "name": "image of a Tunnel"
+  },
+  {
+    "image": "househill.png",
+    "text": "Mountain house",
+    "name": "image of a Mountain"
+  }
+]
