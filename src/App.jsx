@@ -51,7 +51,7 @@ function App() {
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          bgcolor: "background.default",
+          bgcolor: " #fcf5e5",
         }}
       >
         <Header />

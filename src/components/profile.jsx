@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import EditProfile from "./editprofile";
 import NewPost from "./newpost";
+// import { useTheme } from "@mui/material/styles";
 // import { FaEdit, FaPlus } from 'react-icons/fa'
 
 const Profile = ({ posts, setPosts }) => {
+//   const theme = useTheme();
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openNewPostModal, setOpenNewPostModal] = useState(false);
   const [profileName, setProfileName] = useState(
@@ -56,6 +58,12 @@ const Profile = ({ posts, setPosts }) => {
             <Button
               variant="contained"
               color="primary"
+              sx={{
+                backgroundColor: "#000",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.8)",
+                },
+              }}
               onClick={handleOpenEditModal}
             >
               Edit Profile
@@ -63,6 +71,12 @@ const Profile = ({ posts, setPosts }) => {
             <Button
               variant="contained"
               color="primary"
+              sx={{
+                backgroundColor: "#000",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.8)",
+                },
+              }}
               onClick={handleOpenNewPostModal}
             >
               New Post
